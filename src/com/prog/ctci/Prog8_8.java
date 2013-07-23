@@ -1,5 +1,12 @@
 package com.prog.ctci;
 
+/*
+ *  Incorrect!  canBePlaced() does not check in the diagonal direction in the the right
+ *  Also, once an element can be placed in a row, you have to go all the way up to the first node and 
+ *  move it to the next column 
+ */
+
+
 /**
  * Write an algorithm to print all ways of arranging eight queens on a chess board so that 
  * none of them share the same row, column or diagonal.
