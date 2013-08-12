@@ -1,5 +1,7 @@
 package com.prog.lafore;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 /**
@@ -15,6 +17,7 @@ public class Chp13_Graph{
 	int vertexCount = 0;
 	int[][] adjMatrix;
 	Stack<Vertex> vertexStack = new Stack<Vertex>();
+	List<Vertex> vertexQueue = new ArrayList<Vertex>();
 	
 	public Chp13_Graph(int numOfVertices){
 		vertexList = new Vertex[numOfVertices];
@@ -64,6 +67,29 @@ public class Chp13_Graph{
 		
 	}
 	
+	public void bfs(int index){
+		
+		Vertex vertex = vertexList[index];
+		vertex.visited = true;
+		vertex.displayVertex();
+		vertexQueue.add(vertex);
+		
+		while(!vertexQueue.isEmpty()){
+			Vertex queueFrontVertex = vertexQueue.remove(0);
+			List<Vertex> allUnvisitedNeighbors = getAllUnvisitedNeighbors(queueFrontVertex.index);
+			
+			if(!allUnvisitedNeighbors.isEmpty()){
+				//if there are unvisited neighbors, add them to the queue, display them and mark them 'viewed'
+				for(Vertex neighbor : allUnvisitedNeighbors){
+					neighbor.visited = true;
+					neighbor.displayVertex();
+					vertexQueue.add(neighbor);
+				}
+			}
+		}
+		
+	}
+	
 	public Vertex getUnvisitedAdjacentVertex(int index){
 		for(int i=0; i < adjMatrix[index].length ; i++){
 			int edge = adjMatrix[index][i];
@@ -73,6 +99,18 @@ public class Chp13_Graph{
 			}
 		}
 		return null;
+	}
+	
+	public List<Vertex> getAllUnvisitedNeighbors(int index){
+		List<Vertex> allUnvisitedNeighbors = new ArrayList<Vertex>();
+		for(int i=0; i < adjMatrix[index].length ; i++){
+			int edge = adjMatrix[index][i];
+			if(edge == 1 && vertexList[i].visited == false){
+				vertexList[i].visited = true;
+				allUnvisitedNeighbors.add(vertexList[i]);
+			}
+		}
+		return allUnvisitedNeighbors;
 	}
 	
 }

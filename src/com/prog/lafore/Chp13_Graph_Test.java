@@ -42,4 +42,10 @@ public class Chp13_Graph_Test{
 		chp13_Graph.dfs(0);
 	}
 	
+	@Test
+	public void test_bfs(){
+		System.out.println("---	bfs	---");
+		chp13_Graph.bfs(0);
+	}
+	
 }
