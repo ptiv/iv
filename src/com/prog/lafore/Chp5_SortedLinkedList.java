@@ -8,6 +8,7 @@ package com.prog.lafore;
  */
 public class Chp5_SortedLinkedList extends Chp5_LinkedList{
 
+	//see page# 214
 	public void insertSorted(int data){
 
 		Link link = new Link(data);
