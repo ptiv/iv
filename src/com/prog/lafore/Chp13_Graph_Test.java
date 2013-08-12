@@ -48,4 +48,10 @@ public class Chp13_Graph_Test{
 		chp13_Graph.bfs(0);
 	}
 	
+	@Test
+	public void test_mst(){
+		System.out.println("---	mst	---");
+		chp13_Graph.mst(0);
+	}
+	
 }
