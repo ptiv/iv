@@ -3,18 +3,16 @@ package com.prog.lafore;
 import java.util.Stack;
 
 /**
- * 
- * Binary Search Tree from Lafore
+ * Binary Search Tree from Lafore with a pointer to the parent node
  * 
  * @author ptemkar
- * @date 07/28/13
+ * @date 08/15/13
  */
-public class Chp8_BinarySearchTree{
+public class Chp8_BinarySearchTree_WithParentPointer {
+	Node_withParent root;
 
-	Node root;
-
-	public Node findNode(int key) throws NodeNotFoundException{
-		Node current = root;
+	public Node_withParent findNode(int key) throws NodeNotFoundException{
+		Node_withParent current = root;
 		while(current != null){
 
 			if(key == current.data){
@@ -30,18 +28,19 @@ public class Chp8_BinarySearchTree{
 
 	public void insertNode(int key){
 
-		Node node = new Node(key);
+		Node_withParent node = new Node_withParent(key);
 		if(root == null){
 			root = node;
 			return;
 		}
 
-		Node current = root;
+		Node_withParent current = root;
 
 		while(current != null){
 			if(key >= current.data){
 				if(current.rightChild == null){ 				
 					current.rightChild = node;
+					node.parent = current;
 					return;
 				}else{
 					current = current.rightChild;
@@ -49,6 +48,7 @@ public class Chp8_BinarySearchTree{
 			}else{
 				if(current.leftChild == null){
 					current.leftChild = node;
+					node.parent = current;
 					return;
 				}else{
 					current = current.leftChild;
@@ -58,7 +58,7 @@ public class Chp8_BinarySearchTree{
 	}
 
 	// start with the root node
-	public void inorderTraversal(Node node){
+	public void inorderTraversal(Node_withParent node){
 		if(node.leftChild != null){
 			inorderTraversal(node.leftChild);
 		}
@@ -69,16 +69,16 @@ public class Chp8_BinarySearchTree{
 
 	}
 
-	public Node findMinimumNode(){
-		Node current = root;
+	public Node_withParent findMinimumNode(){
+		Node_withParent current = root;
 		while(current.leftChild != null){
 			current = current.leftChild;
 		}
 		return current;
 	}
 
-	public Node findMaximumNode(){
-		Node current = root;
+	public Node_withParent findMaximumNode(){
+		Node_withParent current = root;
 		while(current.rightChild != null){
 			current = current.rightChild;
 		}
@@ -87,8 +87,8 @@ public class Chp8_BinarySearchTree{
 
 	public boolean deleteNode(int key){
 
-		Node current = root;
-		Node parent = root;
+		Node_withParent current = root;
+		Node_withParent parent = root;
 		boolean isLeftChild = false;
 
 		//This part will find the node to be deleted
@@ -96,6 +96,7 @@ public class Chp8_BinarySearchTree{
 		//parent will point to the parent node
 		while(current.data != key){
 
+			//if you don't wanna use node.parent
 			parent = current;
 			if(key < current.data){	 			
 				current = current.leftChild;
@@ -125,14 +126,16 @@ public class Chp8_BinarySearchTree{
 			}
 
 		}else if(current.rightChild == null){
-			//if the left sub-tree is not null
+			//if the left sub-tree is not null and the right one is null
 			if(current == root){
 				root = current.leftChild;
 			}else{
 				if(isLeftChild){
 					parent.leftChild = current.leftChild;
+					current.leftChild.parent = parent;
 				}else{
 					parent.rightChild = current.leftChild;
+					current.leftChild.parent = parent;
 				}
 			}
 
@@ -144,14 +147,16 @@ public class Chp8_BinarySearchTree{
 			}else{
 				if(isLeftChild){
 					parent.leftChild = current.rightChild;
+					current.rightChild.parent = parent;
 				}else{
 					parent.rightChild = current.rightChild;
+					current.rightChild.parent = parent;
 				}
 			}	
 
 		}else{
 			//the node to be deleted has both sub-trees
-			Node successor = getSuccessor(current);
+			Node_withParent successor = getSuccessor(current);
 
 			if(current == root){
 				root = successor;
@@ -160,7 +165,8 @@ public class Chp8_BinarySearchTree{
 			}else{
 				parent.rightChild = successor;
 			}
-
+			
+			successor.parent = parent;
 			successor.leftChild = current.leftChild;
 		}
 
@@ -176,17 +182,17 @@ public class Chp8_BinarySearchTree{
 	 * @param delNode
 	 * @return
 	 */
-	public Node getSuccessor(Node delNode){
-		Node successor = null;
+	public Node_withParent getSuccessor(Node_withParent delNode){
+		Node_withParent successor = null;
 
-		Node delNodeRightChild = delNode.rightChild;
+		Node_withParent delNodeRightChild = delNode.rightChild;
 
 		if(delNodeRightChild.leftChild == null){
 			successor = delNodeRightChild;
 		}else{
 			//find the left-most node of the right sub-tree of delNode
-			Node parent = delNode;
-			Node current = delNode;
+			Node_withParent parent = delNode;
+			Node_withParent current = delNode;
 
 			while(current.leftChild != null){
 				parent = current;
@@ -221,7 +227,7 @@ public class Chp8_BinarySearchTree{
 
 			while(globalStack.isEmpty()==false)
 			{
-				Node temp = (Node)globalStack.pop();
+				Node_withParent temp = (Node_withParent)globalStack.pop();
 				if(temp != null)
 				{
 					System.out.print(temp.data);
@@ -251,25 +257,18 @@ public class Chp8_BinarySearchTree{
 	}  // end displayTree()
 }
 
-class Node{
+class Node_withParent{
+	
 	int data;
-	Node leftChild;
-	Node rightChild;
+	Node_withParent leftChild;
+	Node_withParent rightChild;
+	Node_withParent parent;
 
-	public Node(int data){
+	public Node_withParent(int data){
 		this.data = data;
 	}
 
 	public void displayNode(){
 		System.out.print(data + " ");
 	}
-}
-
-class NodeNotFoundException extends Exception{
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 }
