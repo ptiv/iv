@@ -75,5 +75,10 @@ public class Chp8_BinarySearchTree_Test {
 		bst.displayTree();
 	}
 	
+	@Test
+	public void test_height(){
+		assertEquals(4, bst.findTreeHeight(bst.root));
+	}
+	
 	
 }

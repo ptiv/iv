@@ -201,6 +201,23 @@ public class Chp8_BinarySearchTree{
 	}
 
 	/**
+	 * finds the height of the tree. call this method with the root node as the param
+	 * @param node
+	 * @return
+	 */
+	public int findTreeHeight(Node node){
+		int height = 0;
+		
+		if(node == null){
+			return -1;
+		}
+		
+		height = 1 + java.lang.Math.max(findTreeHeight(node.leftChild), findTreeHeight(node.rightChild));		
+		
+		return height;
+	}
+	
+	/**
 	 * from lafore
 	 */
 	public void displayTree()
@@ -249,6 +266,8 @@ public class Chp8_BinarySearchTree{
 		System.out.println(
 		"......................................................");
 	}  // end displayTree()
+	
+	
 }
 
 class Node{
