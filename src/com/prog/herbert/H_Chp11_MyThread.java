@@ -17,7 +17,7 @@ public class H_Chp11_MyThread implements Runnable{
 		System.out.println("Thread " + thrd.getName() + " has started");
 		int count = 0;
 		for(int i=0 ; i<10 ; i++){
-			System.out.println("count : " + count);
+			System.out.println(thrd.getName() + " - count : " + count);
 			try {
 				Thread.sleep(400);
 			} catch (InterruptedException e) {
