@@ -170,6 +170,3 @@ class Char_Link{
 	}
 	
 }
-
-class LinkNotFoundException extends Exception{
-}
