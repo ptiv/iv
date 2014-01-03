@@ -16,7 +16,7 @@ to determine in which direction to continue Binary Search
 */
 /**
  * Given a sorted array of strings which is interspersed with empty strings, 
- * write a meth- od to find the location of a given string.
+ * write a method to find the location of a given string.
  * 
  * Example: find “ball” in [“at”, “”, “”, “”, “ball”, “”, “”, “car”, “”, “”, “dad”, “”, “”] will return 4 
  * Example: find “ballcar” in [“at”, “”, “”, “”, “”, “ball”, “car”, “”, “”, “dad”, “”, “”] will return -1
@@ -54,16 +54,14 @@ public class Prog9_5{
 				if( (arr[leftPtr]).compareTo(searchKey) < 0 ){
 					return binarySearchWithEmptyStrings(searchKey, midPoint+1, end, numberOfSteps+1);
 				}else{
-					return binarySearchWithEmptyStrings(searchKey, start, leftPtr-1, numberOfSteps+1);
+					//remember, it's midPoint-1, and not leftPtr-1
+					return binarySearchWithEmptyStrings(searchKey, start, midPoint-1, numberOfSteps+1);
 				}
 				
 			}else{
 				//if you have reached the left-most end, search in the right half of the array
 				return binarySearchWithEmptyStrings(searchKey, midPoint+1, end, numberOfSteps+1);
 			}
-			
-		}
-		
+		}	
 	}
-	
 }
