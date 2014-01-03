@@ -7,7 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Test class for Prog9_5
+ * Test class for Prog9_5.
  *
  */
 public class Prog9_5_Test {
