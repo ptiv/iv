@@ -6,6 +6,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Test class for Prog9_5
+ *
+ */
 public class Prog9_5_Test {
 	private String[] arr = {"at", "", "", "", "ball", "", "", "car", "", "", "dad", "", ""};
 	private Prog9_5 prog9_5;
