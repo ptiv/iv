@@ -1,2 +1,3 @@
-//chapter 1
-print("test")
+#chapter 1
+name = "pt"
+print(name)
