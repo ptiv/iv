@@ -1,4 +1,19 @@
 
+
+#chapter 9
+print("Chp 9: if statements")
+str_ch9_1 = "ch9"
+if str_ch9_1 == "ch9":
+	print("ch9_str1")
+	print("ch9_str2")
+
+if str_ch9_1 == "hsjjd":
+	print("ch9_str1")
+	print("ch9_str2")
+print("done")
+
+print("---")
+
 #chapter 8
 str_ch8_1 = "hello, "
 str_ch8_2 = "world!"
