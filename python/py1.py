@@ -1,4 +1,10 @@
-
+#chapter 10
+print("Chp 10: Comparison Operators")
+num_ch10_1 = 4
+num_ch10_2 = 7
+if num_ch10_1 < num_ch10_2:
+	print("4 < 7")
+print("---")
 
 #chapter 9
 print("Chp 9: if statements")
