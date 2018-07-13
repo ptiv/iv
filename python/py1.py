@@ -1,3 +1,20 @@
+#chapter 11
+print("Chp 11: else and elif statements")
+species = "dog"
+if species == "cat":
+	print("It's a cat")
+else:
+	print("It's not a cat")
+
+if species=="cat":
+	print("It's a cat")
+elif species=="dog":
+	print("It's a dog")
+else:
+	print("It's neither")
+
+print("---")
+
 #chapter 10
 print("Chp 10: Comparison Operators")
 num_ch10_1 = 4
