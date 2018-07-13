@@ -1,3 +1,13 @@
+
+#chapter 12
+print("Chp 12: Testing sets of conditions")
+weight = 320
+time = 5.8
+if (weight > 300 and time < 6):
+	print("recruit player")
+
+print("---")
+
 #chapter 11
 print("Chp 11: else and elif statements")
 species = "dog"
