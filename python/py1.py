@@ -1,4 +1,13 @@
 
+#chapter 15
+print("Chp 15: Lists")
+
+cities = ["San Francisco", "New York", "Los Angeles"]
+print("cities[0] = " + cities[0])
+print("cities[1] = " + cities[1])
+
+print("---")
+
 #chapter 12
 print("Chp 12: Testing sets of conditions")
 weight = 320
