@@ -1,4 +1,18 @@
 
+#chapter 16
+print("Chp 16: Lists - Adding and changing elements")
+
+cities_ch16 = ["SF", "NY", "LA"]
+cities_ch16.append("Bos")
+print(cities_ch16)
+print(cities_ch16[3])
+
+cities_ch16.insert(2, "Chi")
+print(cities_ch16)
+
+print("---")
+
+
 #chapter 15
 print("Chp 15: Lists")
 
