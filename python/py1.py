@@ -97,11 +97,3 @@ print(ch17_cities_subset)
 
 print("---")
 
-#chapter 18
-print("Chp 18: Lists - Deleting anfd removing elements")
-
-ch18_tasks = ["repair car", "find yoga", "find doc"]
-del ch18_tasks[1]
-print(ch18_tasks)
-
-print("---")
