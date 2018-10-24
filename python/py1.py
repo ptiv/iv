@@ -1,5 +1,5 @@
 
-#py1.p - Chapters 1 to 20
+#py1.py - Chapters 1 to 20
 
 #chapter 1
 name = "pt"
