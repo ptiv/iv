@@ -105,3 +105,16 @@ del ch18_tasks[1]
 print(ch18_tasks)
 
 print("---")
+
+
+#chapter 19
+print("Chp 19: Lists - Popping elements")
+
+ch19_tasks = ["repair car", "find yoga", "find doc"]
+ch19_finished_tasks = ["clean house"]
+ch19_finished_tasks.insert(1,ch19_tasks.pop(1));
+
+print("ch19_tasks : " + `ch19_tasks`)
+print("ch19_finished_tasks : " + `ch19_finished_tasks`)
+
+print("---")
