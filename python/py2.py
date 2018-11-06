@@ -9,6 +9,7 @@ city_to_check_2 = "New York"
 for clean_city in clean_cities:
 	if city_to_check_1 == clean_city:
 		print(city_to_check_1 + " is a clean city")
+		break
 
 
 for clean_city in clean_cities:
